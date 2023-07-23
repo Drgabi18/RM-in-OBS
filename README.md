@@ -7,6 +7,9 @@ Removes a Extended Window Style to get Rainmeter Skins into OBS
 * **Windows 10** (1903 and up)
 * **OBS** (25.0.0 and up)
 
+# Installation
+**Get the latest .rmskin from the [Releases](https://github.com/Drgabi18/RM-in-OBS/releases) tab**
+
 # How do I use this?
 
 [Demo video if you can't follow simple text tutorials](https://streamable.com/0j1e5v)
