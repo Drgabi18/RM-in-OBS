@@ -59,3 +59,19 @@ The skin is janky if not obvious, are you surprised?
 # Credits
 * "JSMorley" for his "[ConfigActive](https://forum.rainmeter.net/viewtopic.php?t=28720#p149824)" plugin, which is the main skeleton of the skin
 * "icons8.com" for the refresh and note icon
+
+# Version History
+* (23 July 2023) **Release Candidate 2**
+  - Well I failed my promise...
+  - SKIN: Corrected wording around - to make it less obvious I'm [ESL](https://www.urbandictionary.com/define.php?term=ESL)
+  - SKIN: Added an Info icon - for people who might not know how to Right Click > Edit skin
+  - SKIN: Added `[ErrorString]` - which appears if the `Initialize()` function fails
+  - LUA: Improved the code a bit, `GenerateConfig()` is the same but I made the `ins()` helper function for the lines that should be added, explanation inside
+  - LUA: Finally made `GetWidth()` decent, previously it just got the meter with the longest width, now it gets the meter with the longest `X + W` value and sets `[HackyPadding]`'s X to that, so the skin now has a Padding of 12 all around
+* (Christmas 2022) **I hope Release Candidate without any other new version**
+  - Initial release
+
+# License
+`Free for Personal Use, Free to Distribute, Do not claim Ownership.`
+
+I couldn't find what I want on Google, so all you want to do with my work is free but if you claim ownership and try to get money of it, you're in hot water buddy, I don't want blood on my hands any time soon
