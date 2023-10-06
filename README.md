@@ -1,7 +1,7 @@
 ![The skin in action, OBS window, example skin and the skin itself](./RM-in-OBS.gif)
 
 # RM-in-OBS
-Removes a Extended Window Style to get Rainmeter Skins into OBS
+Removes an Extended Window Style to get Rainmeter Skins into OBS
 
 # Requirements
 * **Windows 10** (1903 and up)
