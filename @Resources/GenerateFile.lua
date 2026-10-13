@@ -38,7 +38,7 @@ function ins(StringsToRead, Index, TableWhereNeeded)
 end
 
 function Initialize()
-	Nr=SELF:GetOption("NrOfLoadedSkins")
+	Nr = SELF:GetOption("NrOfLoadedSkins")
 	GenerateConfigs(Nr)
 	
 	--if GenerateConfig fails, this next line never gets executed, making it easier to know it's a LUA error
@@ -82,33 +82,25 @@ end
 
 function GetWidth(n)
 
-	-- This is stupidly complex, all it does is make a {{"String1", 231},{"String2", 554}} table out of
-	-- some meters I chose to be in the list and just gets the meter that has the longest width so 
-	-- the invisible hacking padding meter can be positioined at the X position that is the longest
-	-- I did it mostly to learn tables and always wanted to do this
-
-	-- day 1 of wishing Rainmeter had an array implementation
-
+-- This is stupidly complex, all it does is make a {{"String1", 231},{"String2", 554}} table out of
+-- some meters I chose to be in the list and just gets the meter that has the longest width so 
+-- the invisible hacking padding meter can be positioined at the X position that is the longest
+-- I did it mostly to learn tables and always wanted to do this
+function GetWidth(n)
 	local b = {}
 
 	table.insert(b, "ReadIniPlease")
 
-	if SKIN:GetVariable("HideJunk", 0) ~= 0 then
-		table.insert(b, "ReadIniJunk")
-	end
+	if SKIN:GetVariable("HideJunk", 0) ~= 0 then table.insert(b, "ReadIniJunk") end
 
-	for i = 1, n do
-		table.insert(b, "String" .. i)
-	end
+	for i = 1, n do table.insert(b, "String" .. i) end
 
 	-- can also be done using __index and __newindex but would need a proxy table, eh
 	for i = 1, #b do
 		b[i] = {b[i], SKIN:ReplaceVariables("[" .. b[i] .. ":XW]")}
 	end
 
-	table.sort( b,
-		function(a, c) return a[2] < c[2] end
-	)
+	table.sort(b, function(a, c) return a[2] < c[2] end)
 
 	--print(b[#b][1],b[#b][2])
 

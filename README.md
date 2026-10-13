@@ -39,7 +39,7 @@ WinSet, ExStyle, -0x80, %b%
 }
 ```
 
-I copy pasted it off the AHK Documentation and I didn’t read the rest, I don’t even know what the first `“a”` dose, `“b”` is the important parameter that is parsed though. Because the last parameter on `WinSet` accepts windows titles (the ones when you ALT+TAB, e.g. `menu.ini - Notepad`) and because Rainmeter’s window titles are their file name (because of [these lines of code](https://github.com/rainmeter/rainmeter/blob/master/Library/Skin.cpp#L272-L276)), what this skin does is just execute a bang formatted like `[“ExStyleRemove.exe” “G:\Rainmeter\Skins\RM-in-OBS\menu.ini”]` which AHK executes to remove the Extended Style.
+I copy pasted it off the AHK Documentation and I didn’t read the rest, I don’t even know what the first `“a”` dose, `“b”` is the important parameter that is parsed though. Because the last parameter on `WinSet` accepts windows titles (the ones when you ALT+TAB, e.g. `menu.ini - Notepad`) and because Rainmeter’s window titles are their file name (because of [these lines of code](https://github.com/rainmeter/rainmeter/blob/v5.0.0.5293/Library/Skin.cpp#L310-L314)), what this skin does is just execute a bang formatted like `[“ExStyleRemove.exe” “G:\Rainmeter\Skins\RM-in-OBS\menu.ini”]` which AHK executes to remove the Extended Style.
 
 The capturing method that was introduced in Windows 10 is used in Microsoft Teams and several other apps, you can also hide Rainmeter Windows from Share Screen! You need to toggle on WDA_EXCLUDEFROMCAPTURE, however Googling how to do that in AHK lead me to no result and I wouldn't know how to do it anyways.
 
