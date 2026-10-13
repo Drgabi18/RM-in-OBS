@@ -44,12 +44,12 @@ I copy pasted it off the AHK Documentation and I didnâ€™t read the rest, I donâ€
 The capturing method that was introduced in Windows 10 is used in Microsoft Teams and several other apps, you can also hide Rainmeter Windows from Share Screen! You need to toggle on WDA_EXCLUDEFROMCAPTURE, however Googling how to do that in AHK lead me to no result and I wouldn't know how to do it anyways.
 
 # Shortcomings
-1. DPI Scaling
-2. Capture Method Yellow Border (Problem from Microsoft)
-3. The style disappears if you restart Rainmeter (unless you make the AHK file portable, read the section below)
-4. Because I didn't make the `WinSet` a toggle (because I don't wanna code the toggle, as it's already hard to keep track of skins that may have had the style applies, and because i literally don't know how), I only made the skin remove the Extended Style, to make them no longer be captured by OBS, unload and load the skins to completly kill the process that hosted the window, this can be easily fixed by someone with patience though, which is not me
-5. The skin probably dosen't work for people who have Unicode characters in their Windows username, as it uses LUA to generate files, the problem can be solved again by going portable
-6. Random Crashes (Problem from OBS, I don't blame them)
+1. Capture Method Yellow Border (Design choice (and problem) from Microsoft)
+2. The style disappears if you restart Rainmeter, unless you make the AHK file portable (read the next section)
+3. Because I didn't make the `WinSet` a toggle (because I don't wanna code the toggle, as it's already hard to keep track of skins that may have had the style applies, and because i literally don't know how), I only made the skin remove the Extended Style, to make them no longer be captured by OBS, unload and load the skins to completly kill the process that hosted the window, this can be easily fixed by someone with patience though, which is not me
+4. The skin probably dosen't work for people who have Unicode characters in their Windows username, as it uses LUA to generate files, the problem can be solved again by going portable
+  * This could be fixed with the new Lua Unicode functions in Rainmeter 5.0
+5. Random Crashes (Problem from OBS, I don't blame them)
 
 # Portable
 If you wanna remove the Extended Style of any window when a skin loads, all you need to do is include the bang below in a .ini/skin, copy pasting the line below should do it (if you know what you're doing, put it where you need though)
@@ -64,14 +64,18 @@ The skin is janky if not obvious, are you surprised?
 * "icons8.com" for the refresh and note icon
 
 # Version History
+* (13 Oct 2026) **Release Candidate 3**
+  - Wasn't expecting to update this but here we are
+  - **SKIN**: Changed the default font size from the absurd size it was at previously.
+  - **LUA**: Added `[!Skin:ForceEnableVisibleMode "[&Config%d]"]` to remove an optimization, but also make it work with Rainmeter 5.0.
 * (23 July 2023) **Release Candidate 2**
   - Well I failed my promise...
-  - SKIN: Corrected wording around - to make it less obvious I'm [ESL](https://www.urbandictionary.com/define.php?term=ESL)
-  - SKIN: Added an Info icon - for people who might not know how to Right Click > Edit skin
-  - SKIN: Added `[ErrorString]` - which appears if the `Initialize()` function fails
-  - LUA: Improved the code a bit, `GenerateConfig()` is the same but I made the `ins()` helper function for the lines that should be added, explanation inside
-  - LUA: Finally made `GetWidth()` decent, previously it just got the meter with the longest width, now it gets the meter with the longest `X + W` value and sets `[HackyPadding]`'s X to that, so the skin now has a Padding of 12 all around
-* (Christmas 2022) **I hope Release Candidate without any other new version**
+  - **SKIN**: Corrected wording around - to make it less obvious I'm [ESL](https://www.urbandictionary.com/define.php?term=ESL)
+  - **SKIN**: Added an Info icon - for people who might not know how to Right Click > Edit skin
+  - **SKIN**: Added `[ErrorString]` - which appears if the `Initialize()` function fails
+  - **LUA**: Improved the code a bit, `GenerateConfig()` is the same but I made the `ins()` helper function for the lines that should be added, explanation inside
+  - **LUA**: Finally made `GetWidth()` decent, previously it just got the meter with the longest width, now it gets the meter with the longest `X + W` value and sets `[HackyPadding]`'s X to that, so the skin now has a Padding of 12 all around
+* (Christmas 2022) **I hope Release Candidate 1 without any other new version**
   - Initial release
 
 # License
