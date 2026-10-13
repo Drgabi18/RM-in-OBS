@@ -54,7 +54,7 @@ The capturing method that was introduced in Windows 10 is used in Microsoft Team
 # Portable
 If you wanna remove the Extended Style of any window when a skin loads, all you need to do is include the bang below in a .ini/skin, copy pasting the line below should do it (if you know what you're doing, put it where you need though)
 
-`OnRefreshAction=["#SKINSPATH#\RM-in-OBS\@Resources\ExStyleRemove.exe" "#CURRENTPATH##CURRENTFILE#"]`
+`OnRefreshAction=[!ForceEnableVisibleMode]["#SKINSPATH#\RM-in-OBS\@Resources\ExStyleRemove.exe" "#CURRENTPATH##CURRENTFILE#"]`
 
 # Other things
 The skin is janky if not obvious, are you surprised?

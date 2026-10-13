@@ -1,5 +1,8 @@
---inspired by undefinist / www.undefinist.com Factory.lua file
---because I didn't know what commands were necesary to generate it
+-- inspired by undefinist / www.undefinist.com Factory.lua file
+-- because I didn't know what commands were necesary to generate it
+
+-- EDIT (13 Oct 2026): Although Rainmeter now added a way to create meters and
+-- measures on the fly using Lua, this skin will not be updated to do so
 
 function ins(StringsToRead, Index, TableWhereNeeded)
 	
@@ -66,12 +69,14 @@ function GenerateConfigs(n)
 		"Index=%d",
 		"UpdateDivider=-1"}, i, t)
 
+	-- (13 Oct 2026) Added `[!Skin:ForceEnableVisibleMode "[&Config%d]"]` to fix
+	-- Rainmeter stopping the skin from drawing on 5.0
 	ins({"[String%d]",
 		"Meter=String",
 		"MeasureName=Config%d",
 		"MeasureName2=Skin%d",
 		"MeterStyle=Texty",
-		'LeftMouseUpAction=["#@#ExStyleRemove.exe" "#SkinsPath#'..'[&Config%d]\\[&Skin%d]"][!SetOption String%d SolidColor "#ColorSet#"][!UpdateMeter String%d][!Redraw]\n'}, i, t)
+		'LeftMouseUpAction=[!Skin:ForceEnableVisibleMode "[&Config%d]"]["#@#ExStyleRemove.exe" "#SkinsPath#'..'[&Config%d]\\[&Skin%d]"][!SetOption String%d SolidColor "#ColorSet#"][!UpdateMeter String%d][!Redraw]\n'}, i, t)
 
 	end
 
@@ -79,8 +84,6 @@ function GenerateConfigs(n)
 	file:close()
 
 end
-
-function GetWidth(n)
 
 -- This is stupidly complex, all it does is make a {{"String1", 231},{"String2", 554}} table out of
 -- some meters I chose to be in the list and just gets the meter that has the longest width so 
